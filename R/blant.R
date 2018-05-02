@@ -18,7 +18,7 @@ blant <- function(mode, n, k, filename, threads = -1) {
     system(cmd, intern=TRUE)
   }
   path = getwd()
-  newpath = paste(.Library, "/BLANT/data", sep = "")
+  newpath = paste(.Library, "/BLANT", sep = "")
   setwd(newpath)
   a = blantHelper(mode, n, k, filename, threads)
   number = as.numeric(lapply(strsplit(a, " "), function(x) x[1]))
@@ -28,3 +28,5 @@ blant <- function(mode, n, k, filename, threads = -1) {
   setwd(path)
   return(df)
 }
+
+#blant("f", 10000, 5, "syeast.el")
