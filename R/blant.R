@@ -1,4 +1,4 @@
-#' The blant function
+#' The BLANT function
 #'
 #' This function will return a table containing the sampling results\cr
 #' Note:  1. Nodes must be integers numbered 0 through n-1, inclusive.\cr
@@ -18,7 +18,7 @@ blant <- function(mode, n, k, filename, threads = -1) {
     system(cmd, intern=TRUE)
   }
   path = getwd()
-  newpath = paste(.Library, "/BLANT", sep = "")
+  newpath = paste(installed.packages()["BLANT", "LibPath"],"/BLANT/blantsrc", sep="")
   setwd(newpath)
   a = blantHelper(mode, n, k, filename, threads)
   number = as.numeric(lapply(strsplit(a, " "), function(x) x[1]))
