@@ -28,3 +28,5 @@ blant <- function(mode, n, k, filename, threads = -1) {
   setwd(path)
   return(df)
 }
+
+#blant("f", 10000, 5, "syeast.el")
