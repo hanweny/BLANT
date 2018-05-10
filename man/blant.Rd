@@ -2,9 +2,9 @@
 % Please edit documentation in R/blant.R
 \name{blant}
 \alias{blant}
-\title{The blant function}
+\title{The BLANT function}
 \usage{
-blant(mode, n, k, filename, threads = -1)
+blant(mode, n, k, filename, sMethod, threads = -1)
 }
 \arguments{
 \item{mode}{--output Mode: o (ODV, the default); i (indexGraphlets); g (GDV); f (graphletFrequency)}
@@ -15,6 +15,12 @@ blant(mode, n, k, filename, threads = -1)
 
 \item{filename}{--Graph must be in one of the following formats with its extension name:
 GML (.gml) GraphML (.xml) LGF(.lgf) CSV(.csv) LEDA(.leda) Edgelist (.el) .}
+
+\item{sMethod}{-- Sampling Mehtods. These are the valid Sampling Methods: \cr
+1.   SAMPLE_UNBIASED/SU -- makes things REALLY REALLY slow.  Like 10-100 samples per second rather than a million.\cr
+2.   SAMPLE_NODE_EXPANSION/SNE -- sample using uniform node expansion; about 100,000 samples per second.\cr
+3.   SAMPLE_EDGE_EXPANSION/SEE -- Fastest, up to a million samples per second.\cr
+4.   SAMPLE_RESERVOIR -- Lu Bressan's reservoir sampler, reasonably but not entirely unbiased.\cr}
 }
 \description{
 This function will return a table containing the sampling results\cr
