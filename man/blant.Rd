@@ -4,7 +4,7 @@
 \alias{blant}
 \title{The BLANT function}
 \usage{
-blant(mode, n, k, filename, sMethod, threads = -1)
+blant(filepath, mode, n, k, filename, connected, threads = -1)
 }
 \arguments{
 \item{mode}{--output Mode: o (ODV, the default); i (indexGraphlets); g (GDV); f (graphletFrequency)}
@@ -16,15 +16,19 @@ blant(mode, n, k, filename, sMethod, threads = -1)
 \item{filename}{--Graph must be in one of the following formats with its extension name:
 GML (.gml) GraphML (.xml) LGF(.lgf) CSV(.csv) LEDA(.leda) Edgelist (.el) .}
 
-\item{sMethod}{-- Sampling Mehtods. These are the valid Sampling Methods: \cr
-1.   SAMPLE_UNBIASED/SU -- makes things REALLY REALLY slow.  Like 10-100 samples per second rather than a million.\cr
-2.   SAMPLE_NODE_EXPANSION/SNE -- sample using uniform node expansion; about 100,000 samples per second.\cr
-3.   SAMPLE_EDGE_EXPANSION/SEE -- Fastest, up to a million samples per second.\cr
-4.   SAMPLE_RESERVOIR -- Lu Bressan's reservoir sampler, reasonably but not entirely unbiased.\cr}
+\item{connected}{-- if it is TRUE/T, blant function will return a table ONLY contains connected graphlets.
+Otherwise, it can contain both connected and disconnected graphlets.}
+
+\item{filepath:}{The path to your BLANT function}
 }
 \description{
-This function will return a table containing the sampling results\cr
-Note:  1. Nodes must be integers numbered 0 through n-1, inclusive.\cr
+This function will return a table containing the sampling results\cr\cr\cr
+NOTE: \cr\cr
+Before using this package, MAKE SURE you have a working Blant function installed\cr\cr
+1. Nodes must be integers numbered 0 through n-1, inclusive.\cr\cr
 2. Duplicates and self-loops should be removed before calling BLANT.
+}
+\examples{
+blant(filepath=..., mode="f", n=10000, k=5, filename="syeast.el", connected=T)
 }
 \keyword{blant}
